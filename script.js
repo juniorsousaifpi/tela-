@@ -1,18 +1,18 @@
-const campoCep = document. queryslector('#cep')
-const campoRua = document. queryslector('#rua')
-const campoBairro = document. queryslector('#bairro')
+const campoCep = document. querySelector('#cep')
+const campoRua = document. querySelector('#rua')
+const campoBairro = document.querySelector('#bairro')
 
-campoCep.AddEventlitener('blu', asinc () => {
+campoCep.addEventListener('blur', async () => {
     const cep = campoCep.value
-    const resposta = await fetch('https://viacep.com.br/ws'/${cep}/json/')
+    const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`)
     const endereco = await resposta.json()
     console.log('endereco: ', endereco)
 
     campoRua.value = endereco.logradouro
-    campoBairro.value = endereco.campoBairro
+    campoBairro.value = endereco.bairro
     
 })
 
-Function cadastrar(){
+function cadastrar(){
     alert('cadastro realizado com suceesso!')
 }
